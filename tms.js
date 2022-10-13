@@ -147,8 +147,6 @@ function animate() {
 
 //   렌더링 함수
 function render() {
-  // camera.position.x += (mouseX - camera.position.x) * 0.05;
-  // camera.position.y += (-mouseY - camera.position.y) * 0.05;
   model.position.x = mouseX * 0.03;
   model.position.y = -mouseY * 0.03;
   model.rotation.y = mouseX * 0.0015;
