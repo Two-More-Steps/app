@@ -87,7 +87,7 @@ function init() {
             console.log(object);
           }
         });
-        const modelScale = 0.05;
+        const modelScale = 0.1;
         model.scale.set(modelScale, modelScale, modelScale);
         model.position.set(0, 1.75, 0);
       },
