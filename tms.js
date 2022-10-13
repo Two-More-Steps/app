@@ -136,7 +136,7 @@ function onDocumentMouseMove(event) {
 
   let mouseCursor = document.querySelector(".cursor");
   mouseCursor.style.left = event.clientX + "px";
-  mouseCursor.style.top = event.clientY - scrollY + "px";
+  mouseCursor.style.top = event.clientY + "px";
 
   model.position.x = mouseX * 0.03;
   model.position.y = -mouseY * 0.03;
