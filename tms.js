@@ -149,9 +149,10 @@ function animate() {
 
 //   렌더링 함수
 function render() {
-  scene.position.x = mouseX * 0.03;
-  scene.position.y = -mouseY * 0.03;
-  scene.rotation.y = mouseX * 0.0015;
-  scene.rotation.x = mouseY * 0.0015;
+  camera.position.x += -mouseX * 0.00005;
+  camera.position.y += mouseY * 0.00005;
+  scene.rotation.y += mouseX * 0.00005;
+  scene.rotation.x += mouseY * 0.00005;
+  // camera.lookAt(scene.position);
   renderer.render(scene, camera);
 }
