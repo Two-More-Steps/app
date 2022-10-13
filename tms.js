@@ -13,7 +13,10 @@ animate();
 
 function init() {
   const container = document.createElement("div");
-  document.body.appendChild(container);
+  const tms_body = document.getElementById("tms_main");
+  container.classList.add("tms_canvas");
+  tms_body.appendChild(container);
+  // document.body.appendChild(container);
 
   // 카메라
   camera = new THREE.PerspectiveCamera(
@@ -137,6 +140,7 @@ function onDocumentMouseMove(event) {
   let mouseCursor = document.querySelector(".cursor");
   mouseCursor.style.left = event.clientX + "px";
   mouseCursor.style.top = event.clientY + "px";
+  mouseCursor.style.opacity = 1;
 
   model.position.x = mouseX * 0.03;
   model.position.y = -mouseY * 0.03;
