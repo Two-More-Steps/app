@@ -97,7 +97,7 @@ function init() {
   }
 
   // 모델 url
-  loadGeometry("/logo.gltf");
+  loadGeometry("https://two-more-steps.github.io/app/logo.gltf");
 
   // 렌더링
   renderer = new THREE.WebGLRenderer({
@@ -136,7 +136,12 @@ function onDocumentMouseMove(event) {
 
   let mouseCursor = document.querySelector(".cursor");
   mouseCursor.style.left = event.clientX + "px";
-  mouseCursor.style.top = event.clientY + "px";
+  mouseCursor.style.top = event.clientY - scrollY + "px";
+
+  model.position.x = mouseX * 0.03;
+  model.position.y = -mouseY * 0.03;
+  model.rotation.y = mouseX * 0.0015;
+  model.rotation.x = mouseY * 0.0015;
 }
 
 //   애니메이션
@@ -147,11 +152,5 @@ function animate() {
 
 //   렌더링 함수
 function render() {
-  model.position.x = mouseX * 0.03;
-  model.position.y = -mouseY * 0.03;
-  model.rotation.y = mouseX * 0.0015;
-  model.rotation.x = mouseY * 0.0015;
-  // camera.lookAt(scene.position);
-
   renderer.render(scene, camera);
 }
