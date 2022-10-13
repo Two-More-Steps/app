@@ -87,12 +87,10 @@ function init() {
           if (object.isMesh) {
             object.castShadow = true;
             object.receiveShadow = true;
-            console.log(object);
           }
         });
         const modelScale = 0.1;
         model.scale.set(modelScale, modelScale, modelScale);
-        model.position.set(0, 1.75, 0);
       },
       onProgress,
       onError
@@ -141,11 +139,6 @@ function onDocumentMouseMove(event) {
   mouseCursor.style.left = event.clientX + "px";
   mouseCursor.style.top = event.clientY + "px";
   mouseCursor.style.opacity = 1;
-
-  model.position.x = mouseX * 0.03;
-  model.position.y = -mouseY * 0.03;
-  model.rotation.y = mouseX * 0.0015;
-  model.rotation.x = mouseY * 0.0015;
 }
 
 //   애니메이션
@@ -156,5 +149,9 @@ function animate() {
 
 //   렌더링 함수
 function render() {
+  scene.position.x = mouseX * 0.03;
+  scene.position.y = -mouseY * 0.03;
+  scene.rotation.y = mouseX * 0.0015;
+  scene.rotation.x = mouseY * 0.0015;
   renderer.render(scene, camera);
 }
