@@ -146,11 +146,6 @@ function onDocumentMouseMove(event) {
 
   cursorX = event.clientX;
   cursorY = event.clientY;
-
-  let mouseCursor = document.querySelector(".cursor");
-  mouseCursor.style.left = event.clientX + "px";
-  mouseCursor.style.top = event.clientY + "px";
-  mouseCursor.style.opacity = 1;
 }
 
 // 클릭이벤트
@@ -200,3 +195,12 @@ let menubar = document.getElementById("tms_menubar");
 menubar.addEventListener("click", function () {
   gnb.classList.toggle("active");
 });
+
+document.addEventListener("mousemove", cursor);
+
+function cursor(event) {
+  let mouseCursor = document.querySelector(".cursor");
+  mouseCursor.style.left = event.clientX + "px";
+  mouseCursor.style.top = event.clientY + "px";
+  mouseCursor.style.opacity = 1;
+}
