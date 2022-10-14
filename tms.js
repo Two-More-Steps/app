@@ -122,9 +122,7 @@ function init() {
 
   // 이벤트 리스너
   document.addEventListener("mousemove", onDocumentMouseMove);
-  document
-    .getElementById("tms_main")
-    .addEventListener("click", onDocumentClick);
+  document.body.addEventListener("click", onDocumentClick);
   window.addEventListener("resize", onWindowResize);
 }
 
