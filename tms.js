@@ -20,8 +20,10 @@ function init() {
   const container = document.createElement("div");
   const tms_body = document.getElementById("tms_main");
   container.classList.add("tms_canvas");
-  tms_body.appendChild(container);
-  // document.body.appendChild(container);
+
+  if (tms_body) {
+    tms_body.appendChild(container);
+  }
 
   // 카메라
   camera = new THREE.PerspectiveCamera(
