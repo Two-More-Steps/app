@@ -13,17 +13,17 @@ let logoMove = true;
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
-init();
-animate();
+
+const tms_body = document.getElementById("tms_main");
+if (tms_body) {
+  init();
+  animate();
+}
 
 function init() {
   const container = document.createElement("div");
-  const tms_body = document.getElementById("tms_main");
   container.classList.add("tms_canvas");
-
-  if (tms_body) {
-    tms_body.appendChild(container);
-  }
+  tms_body.appendChild(container);
 
   // 카메라
   camera = new THREE.PerspectiveCamera(
