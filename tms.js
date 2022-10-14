@@ -122,7 +122,9 @@ function init() {
 
   // 이벤트 리스너
   document.addEventListener("mousemove", onDocumentMouseMove);
-  document.addEventListener("click", onDocumentClick);
+  document
+    .getElementById("tms_main")
+    .addEventListener("click", onDocumentClick);
   window.addEventListener("resize", onWindowResize);
 }
 
@@ -193,3 +195,8 @@ function render() {
 }
 
 // UI
+let gnb = document.getElementById("tms_gnb");
+let menubar = document.getElementById("tms_menubar");
+menubar.addEventListener("click", function () {
+  gnb.classList.toggle("active");
+});

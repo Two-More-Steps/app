@@ -1,7 +1,7 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#svg_tms_logo)">
-<path d="M31.0588 21.6703H0V31.9896H31.0588V21.6703Z" fill="black"/>
-<path d="M31.0588 20.6384H10.3047V10.3192H20.8265V0H31.0588V10.3192V20.6384Z" fill="black"/>
+<path d="M31.0588 21.6703H0V31.9896H31.0588V21.6703Z" fill="#fff"/>
+<path d="M31.0588 20.6384H10.3047V10.3192H20.8265V0H31.0588V10.3192V20.6384Z" fill="#fff"/>
 </g>
 <defs>
 <clipPath id="svg_tms_logo">
