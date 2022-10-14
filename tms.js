@@ -2,9 +2,14 @@ import * as THREE from "three";
 import { GLTFLoader } from "https://unpkg.com/three@0.145.0/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "https://unpkg.com/three@0.145.0/examples/jsm/controls/OrbitControls.js";
 let camera, scene, renderer, model;
-
+let busy = false;
 let mouseX = 0,
   mouseY = 0;
+
+let cursorX = 0,
+  cursorY = 0;
+
+let logoMove = true;
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
@@ -64,7 +69,7 @@ function init() {
 
   // 로딩 시 호출
   const onProgress = function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    // console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
   };
 
   // 로딩 시 에러가 발생하는 경우 호출
@@ -81,7 +86,6 @@ function init() {
       url,
       function (gltf) {
         model = gltf.scene;
-        scene.add(model);
 
         model.traverse(function (object) {
           if (object.isMesh) {
@@ -91,6 +95,8 @@ function init() {
         });
         const modelScale = 0.1;
         model.scale.set(modelScale, modelScale, modelScale);
+
+        scene.add(model);
       },
       onProgress,
       onError
@@ -116,6 +122,7 @@ function init() {
 
   // 이벤트 리스너
   document.addEventListener("mousemove", onDocumentMouseMove);
+  document.addEventListener("click", onDocumentClick);
   window.addEventListener("resize", onWindowResize);
 }
 
@@ -135,12 +142,23 @@ function onDocumentMouseMove(event) {
   mouseX = (event.clientX - windowHalfX) / 2;
   mouseY = (event.clientY - windowHalfY) / 2;
 
+  cursorX = event.clientX;
+  cursorY = event.clientY;
+
   let mouseCursor = document.querySelector(".cursor");
   mouseCursor.style.left = event.clientX + "px";
   mouseCursor.style.top = event.clientY + "px";
   mouseCursor.style.opacity = 1;
 }
 
+// 클릭이벤트
+function onDocumentClick(event) {
+  if (logoMove) {
+    logoMove = false;
+  } else {
+    logoMove = true;
+  }
+}
 //   애니메이션
 function animate() {
   requestAnimationFrame(animate);
@@ -149,10 +167,29 @@ function animate() {
 
 //   렌더링 함수
 function render() {
-  camera.position.x += -mouseX * 0.00005;
-  camera.position.y += mouseY * 0.00005;
-  scene.rotation.y += mouseX * 0.00005;
-  scene.rotation.x += mouseY * 0.00005;
-  // camera.lookAt(scene.position);
+  let cameraX = ((cursorX - windowHalfX) / windowHalfX) * 20;
+  let cameraY = ((cursorY - windowHalfY) / windowHalfY) * 10;
+
+  if (model && logoMove) {
+    model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.0025;
+    model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.0025;
+    camera.position.x += (-cameraX - camera.position.x) * 0.0125;
+    camera.position.y += (cameraY - camera.position.y) * 0.0125;
+    camera.position.z += (30 - camera.position.z) * 0.025;
+  } else if (model) {
+    model.rotation.x += -model.rotation.x * 0.025;
+    model.rotation.y += -model.rotation.y * 0.025;
+    camera.position.x += -camera.position.x * 0.025;
+    camera.position.y += -camera.position.y * 0.025;
+    camera.position.z += (3 - camera.position.z) * 0.025;
+  }
+
+  if (camera.position.z < 3.2) {
+    document.querySelector(".tms_canvas canvas").style.opacity = 0;
+  } else {
+    document.querySelector(".tms_canvas canvas").style.opacity = 1;
+  }
   renderer.render(scene, camera);
 }
+
+// UI
