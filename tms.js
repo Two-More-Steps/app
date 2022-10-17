@@ -125,12 +125,7 @@ function init() {
   // 이벤트 리스너
   document.addEventListener("mousemove", onDocumentMouseMove);
   // document.body.addEventListener("click", onDocumentClick);
-  document
-    .getElementById("tms_about")
-    .addEventListener("mouseenter", logoAnimation);
-  document
-    .getElementById("tms_about")
-    .addEventListener("mouseleave", logoAnimation);
+  document.body.addEventListener("mouseover", logoAnimation);
   window.addEventListener("resize", onWindowResize);
 }
 
@@ -165,9 +160,9 @@ function onDocumentClick(event) {
 
 // 전환이벤트
 function logoAnimation(event) {
-  if (event.type == "mouseenter") {
+  if (event.target == document.getElementById("#tms_about")) {
     logoMove = false;
-  } else {
+  } else if (event.target == document.getElementById("#tms_work")) {
     logoMove = true;
   }
 }
