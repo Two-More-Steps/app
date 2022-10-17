@@ -125,6 +125,9 @@ function init() {
   // 이벤트 리스너
   document.addEventListener("mousemove", onDocumentMouseMove);
   // document.body.addEventListener("click", onDocumentClick);
+  document
+    .getElementById("tms_about")
+    .addEventListener("mouseover", onDocumentClick);
   window.addEventListener("resize", onWindowResize);
 }
 
@@ -150,6 +153,7 @@ function onDocumentMouseMove(event) {
 
 // 클릭이벤트
 function onDocumentClick(event) {
+  console.log(event);
   if (logoMove) {
     logoMove = false;
   } else {
