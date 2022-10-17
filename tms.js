@@ -167,9 +167,9 @@ function onDocumentClick(event) {
 function logoAnimation(event) {
   console.log(event);
   if (event.type == "mouseenter") {
-    logoMove = true;
-  } else {
     logoMove = false;
+  } else {
+    logoMove = true;
   }
 }
 //   애니메이션
