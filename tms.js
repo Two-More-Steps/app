@@ -165,7 +165,6 @@ function onDocumentClick(event) {
 
 // 전환이벤트
 function logoAnimation(event) {
-  console.log(event);
   if (event.type == "mouseenter") {
     logoMove = false;
   } else {
