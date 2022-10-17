@@ -15,6 +15,9 @@ let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
 const tms_body = document.getElementById("tms_main");
+const tms_work = document.getElementById("tms_work");
+const tms_about = document.getElementById("tms_about");
+
 if (tms_body) {
   init();
   animate();
@@ -125,7 +128,6 @@ function init() {
   // 이벤트 리스너
   document.addEventListener("mousemove", onDocumentMouseMove);
   // document.body.addEventListener("click", onDocumentClick);
-  document.body.addEventListener("mouseover", logoAnimation);
   window.addEventListener("resize", onWindowResize);
 }
 
@@ -154,15 +156,6 @@ function onDocumentClick(event) {
   if (logoMove) {
     logoMove = false;
   } else {
-    logoMove = true;
-  }
-}
-
-// 전환이벤트
-function logoAnimation(event) {
-  if (event.target == document.getElementById("#tms_about")) {
-    logoMove = false;
-  } else if (event.target == document.getElementById("#tms_work")) {
     logoMove = true;
   }
 }
