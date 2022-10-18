@@ -6,8 +6,8 @@ let busy = false;
 let mouseX = 0,
   mouseY = 0;
 
-let cursorX = 0,
-  cursorY = 0;
+let cursorX = window.innerWidth / 2;
+let cursorY = window.innerHeight / 2;
 
 let logoMove = true;
 
@@ -146,7 +146,6 @@ function onWindowResize() {
 function onDocumentMouseMove(event) {
   mouseX = (event.clientX - windowHalfX) / 2;
   mouseY = (event.clientY - windowHalfY) / 2;
-
   cursorX = event.clientX;
   cursorY = event.clientY;
 }
@@ -169,12 +168,11 @@ function animate() {
 function render() {
   let cameraX = ((cursorX - windowHalfX) / windowHalfX) * 20;
   let cameraY = ((cursorY - windowHalfY) / windowHalfY) * 10;
-
   if (model && logoMove) {
-    model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.0025;
-    model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.0025;
-    camera.position.x += (-cameraX - camera.position.x) * 0.0125;
-    camera.position.y += (cameraY - camera.position.y) * 0.0125;
+    model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.00125;
+    model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.00125;
+    camera.position.x += (-cameraX - camera.position.x) * 0.00125;
+    camera.position.y += (cameraY - camera.position.y) * 0.00125;
     camera.position.z += (30 - camera.position.z) * 0.025;
   } else if (model) {
     model.rotation.x += -model.rotation.x * 0.025;
