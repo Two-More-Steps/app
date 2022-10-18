@@ -167,28 +167,28 @@ function animate() {
 function render() {
   let cameraX = ((cursorX - windowHalfX) / windowHalfX) * 20;
   let cameraY = ((cursorY - windowHalfY) / windowHalfY) * 10;
-  let tms_about = document.getElementById("about");
+  let tms_about = document.getElementById("about").classList.contains("active");
 
-  if (model && logoMove) {
-    model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.00125;
-    model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.00125;
-    camera.position.x += (-cameraX - camera.position.x) * 0.0025;
-    camera.position.y += (cameraY - camera.position.y) * 0.0025;
-    camera.position.z += (30 - camera.position.z) * 0.025;
-  } else if (model) {
-    model.rotation.x += -model.rotation.x * 0.025;
-    model.rotation.y += -model.rotation.y * 0.025;
-    camera.position.x += -camera.position.x * 0.025;
-    camera.position.y += -camera.position.y * 0.025;
-    camera.position.z += (3 - camera.position.z) * 0.025;
-  }
-
-  if (model && tms_about.classList.contains("active")) {
-    model.rotation.x += -model.rotation.x * 0.025;
-    model.rotation.y += -model.rotation.y * 0.025;
-    camera.position.x += -camera.position.x * 0.025;
-    camera.position.y += -camera.position.y * 0.025;
-    camera.position.z += (20 - camera.position.z) * 0.025;
+  if (model) {
+    if (logoMove && tms_about == false) {
+      model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.00125;
+      model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.00125;
+      camera.position.x += (-cameraX - camera.position.x) * 0.0025;
+      camera.position.y += (cameraY - camera.position.y) * 0.0025;
+      camera.position.z += (30 - camera.position.z) * 0.025;
+    } else if (logoMove == false) {
+      model.rotation.x += -model.rotation.x * 0.025;
+      model.rotation.y += -model.rotation.y * 0.025;
+      camera.position.x += -camera.position.x * 0.025;
+      camera.position.y += -camera.position.y * 0.025;
+      camera.position.z += (3 - camera.position.z) * 0.025;
+    } else if (tms_about) {
+      model.rotation.x += -model.rotation.x * 0.025;
+      model.rotation.y += -model.rotation.y * 0.025;
+      camera.position.x += -camera.position.x * 0.025;
+      camera.position.y += -camera.position.y * 0.025;
+      camera.position.z += (20 - camera.position.z) * 0.025;
+    }
   }
 
   if (camera.position.z < 3.2) {
