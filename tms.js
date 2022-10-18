@@ -15,8 +15,8 @@ let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
 const tms_body = document.getElementById("tms_main");
-const tms_work = document.getElementById("tms_work");
-const tms_about = document.getElementById("tms_about");
+const tms_work = document.getElementById("work");
+const tms_about = document.getElementById("about");
 
 if (tms_body) {
   init();
@@ -174,7 +174,7 @@ function render() {
     camera.position.x += (-cameraX - camera.position.x) * 0.0025;
     camera.position.y += (cameraY - camera.position.y) * 0.0025;
     camera.position.z += (30 - camera.position.z) * 0.025;
-  } else if (model) {
+  } else if (tms_about.classList.contains("active")) {
     model.rotation.x += -model.rotation.x * 0.025;
     model.rotation.y += -model.rotation.y * 0.025;
     camera.position.x += -camera.position.x * 0.025;
