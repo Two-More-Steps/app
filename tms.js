@@ -188,8 +188,9 @@ function render() {
     model.rotation.y += -model.rotation.y * 0.025;
     camera.position.x += -camera.position.x * 0.025;
     camera.position.y += -camera.position.y * 0.025;
-    camera.position.z += (3 - camera.position.z) * 0.025;
+    camera.position.z += (20 - camera.position.z) * 0.025;
   }
+
   if (camera.position.z < 3.2) {
     document.querySelector(".tms_canvas canvas").style.opacity = 0;
   } else {
