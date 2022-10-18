@@ -179,18 +179,18 @@ function render() {
       camera.position.x += (-cameraX - camera.position.x) * 0.0025;
       camera.position.y += (cameraY - camera.position.y) * 0.0025;
       camera.position.z += (30 - camera.position.z) * 0.025;
+    } else if (tms_about && tms_contact == false) {
+      model.rotation.x += -model.rotation.x * 0.025;
+      model.rotation.y += -model.rotation.y * 0.025;
+      camera.position.x += (windowHalfX / 170 - camera.position.x) * 0.025;
+      camera.position.y += -camera.position.y * 0.025;
+      camera.position.z += (20 - camera.position.z) * 0.025;
     } else if (tms_contact) {
       model.rotation.x += -model.rotation.x * 0.025;
       model.rotation.y += -model.rotation.y * 0.025;
       camera.position.x += -camera.position.x * 0.025;
       camera.position.y += -camera.position.y * 0.025;
       camera.position.z += (3 - camera.position.z) * 0.025;
-    } else if (tms_about) {
-      model.rotation.x += -model.rotation.x * 0.025;
-      model.rotation.y += -model.rotation.y * 0.025;
-      camera.position.x += (windowHalfX / 170 - camera.position.x) * 0.025;
-      camera.position.y += -camera.position.y * 0.025;
-      camera.position.z += (20 - camera.position.z) * 0.025;
     }
   }
 
