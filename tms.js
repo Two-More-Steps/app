@@ -186,11 +186,11 @@ function render() {
       camera.position.y += -camera.position.y * 0.025;
       camera.position.z += (20 - camera.position.z) * 0.025;
     } else if (tms_contact) {
-      model.rotation.x += -model.rotation.x * 0.025;
-      model.rotation.y += -model.rotation.y * 0.025;
-      camera.position.x += -camera.position.x * 0.025;
-      camera.position.y += -camera.position.y * 0.025;
-      camera.position.z += (3 - camera.position.z) * 0.025;
+      model.rotation.x += -model.rotation.x * 0.1;
+      model.rotation.y += -model.rotation.y * 0.1;
+      camera.position.x += -camera.position.x * 0.1;
+      camera.position.y += -camera.position.y * 0.1;
+      camera.position.z += (3 - camera.position.z) * 0.1;
     }
   }
 
