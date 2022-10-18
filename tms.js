@@ -127,7 +127,7 @@ function init() {
 
   // 이벤트 리스너
   document.addEventListener("mousemove", onDocumentMouseMove);
-  // document.body.addEventListener("click", onDocumentClick);
+  document.body.addEventListener("click", onDocumentClick);
   window.addEventListener("resize", onWindowResize);
 }
 
@@ -205,3 +205,24 @@ function cursor(event) {
   mouseCursor.style.top = event.clientY + "px";
   mouseCursor.style.opacity = 1;
 }
+
+const options = {
+  root: null, // viewport
+  rootMargin: "0px",
+  threshold: 1.0, // 50%가 viewport에 들어와 있어야 callback 실행
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    } else {
+      entry.target.classList.remove("active");
+    }
+  });
+}, options);
+
+const sectionList = document.querySelectorAll(".tms_section");
+
+// 반복문을 돌려 모든 DOM에 적용
+sectionList.forEach((el) => observer.observe(el));
