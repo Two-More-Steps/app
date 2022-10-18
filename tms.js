@@ -18,19 +18,6 @@ const tms_body = document.getElementById("tms_main");
 const tms_work = document.getElementById("work");
 const tms_about = document.getElementById("about");
 
-const observer = new MutationObserver(function (mutations) {
-  mutations.forEach(function (mutation) {
-    console.log(mutation);
-    if ((mutation.target.className = "active")) {
-      logoMove = false;
-    } else {
-      logoMove = true;
-    }
-  });
-});
-
-observer.observe(tms_about, { attributes: true });
-
 if (tms_body) {
   init();
   animate();
