@@ -175,7 +175,7 @@ function render() {
     camera.position.x += (-cameraX - camera.position.x) * 0.0025;
     camera.position.y += (cameraY - camera.position.y) * 0.0025;
     camera.position.z += (30 - camera.position.z) * 0.025;
-  } else if (tms_about.classList.contains("active")) {
+  } else if (model) {
     model.rotation.x += -model.rotation.x * 0.025;
     model.rotation.y += -model.rotation.y * 0.025;
     camera.position.x += -camera.position.x * 0.025;
@@ -183,6 +183,13 @@ function render() {
     camera.position.z += (3 - camera.position.z) * 0.025;
   }
 
+  if (tms_about.classList.contains("active")) {
+    model.rotation.x += -model.rotation.x * 0.025;
+    model.rotation.y += -model.rotation.y * 0.025;
+    camera.position.x += -camera.position.x * 0.025;
+    camera.position.y += -camera.position.y * 0.025;
+    camera.position.z += (3 - camera.position.z) * 0.025;
+  }
   if (camera.position.z < 3.2) {
     document.querySelector(".tms_canvas canvas").style.opacity = 0;
   } else {
