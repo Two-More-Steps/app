@@ -185,7 +185,7 @@ function render() {
     } else if (tms_about) {
       model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.00125;
       model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.00125;
-      camera.position.x += (-windowHalfX / 200 - camera.position.x) * 0.025;
+      camera.position.x += (windowHalfX / 170 - camera.position.x) * 0.025;
       camera.position.y += -camera.position.y * 0.025;
       camera.position.z += (20 - camera.position.z) * 0.025;
     }
