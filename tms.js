@@ -16,7 +16,6 @@ let windowHalfY = window.innerHeight / 2;
 
 const tms_body = document.getElementById("tms_main");
 const tms_work = document.getElementById("work");
-const tms_about = document.getElementById("about");
 
 if (tms_body) {
   init();
@@ -168,6 +167,8 @@ function animate() {
 function render() {
   let cameraX = ((cursorX - windowHalfX) / windowHalfX) * 20;
   let cameraY = ((cursorY - windowHalfY) / windowHalfY) * 10;
+  let tms_about = document.getElementById("about");
+
   if (model && logoMove) {
     model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.00125;
     model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.00125;
