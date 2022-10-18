@@ -173,7 +173,7 @@ function render() {
     .classList.contains("active");
 
   if (model) {
-    if (tms_about == false) {
+    if (tms_about == false && tms_contact == false) {
       model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.00125;
       model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.00125;
       camera.position.x += (-cameraX - camera.position.x) * 0.0025;
