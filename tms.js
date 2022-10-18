@@ -120,15 +120,6 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   container.appendChild(renderer.domElement);
 
-  renderer2 = new THREE.WebGLRenderer({
-    antialias: true,
-  });
-  renderer2.outputEncoding = THREE.sRGBEncoding;
-  renderer2.shadowMap.enabled = true;
-  renderer2.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer2.setPixelRatio(window.devicePixelRatio);
-  renderer2.setSize(contact_3d.offsetWidth, contact_3d.offsetHeight);
-  container2.appendChild(renderer.domElement);
   // 컨트롤러
   // const controls = new OrbitControls(camera, renderer.domElement);
 
