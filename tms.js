@@ -171,8 +171,8 @@ function render() {
   if (model && logoMove) {
     model.rotation.x += (mouseY / 100 - model.rotation.x) * 0.00125;
     model.rotation.y += (mouseX / 100 - model.rotation.y) * 0.00125;
-    camera.position.x += (-cameraX - camera.position.x) * 0.00125;
-    camera.position.y += (cameraY - camera.position.y) * 0.00125;
+    camera.position.x += (-cameraX - camera.position.x) * 0.0025;
+    camera.position.y += (cameraY - camera.position.y) * 0.0025;
     camera.position.z += (30 - camera.position.z) * 0.025;
   } else if (model) {
     model.rotation.x += -model.rotation.x * 0.025;
