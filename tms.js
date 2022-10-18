@@ -183,7 +183,7 @@ function render() {
     camera.position.z += (3 - camera.position.z) * 0.025;
   }
 
-  if (tms_about.classList.contains("active")) {
+  if (model && tms_about.classList.contains("active")) {
     model.rotation.x += -model.rotation.x * 0.025;
     model.rotation.y += -model.rotation.y * 0.025;
     camera.position.x += -camera.position.x * 0.025;
